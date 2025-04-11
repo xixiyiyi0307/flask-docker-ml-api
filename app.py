@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from sklearn.linear_model import LinearRegression
 import numpy as np
+import statsmodels.api as sm
 
 app = Flask(__name__)
 
@@ -14,6 +15,9 @@ X = np.array([
 y= np.array([137, 118, 124, 124, 120, 129, 122, 142, 128, 114,
               132, 130, 130, 112, 132, 117, 134, 132, 121, 128])
 model = LinearRegression().fit(X, y)
+X_with_const = sm.add_constant(X)  
+ols_model = sm.OLS(y, X_with_const).fit()
+print(ols_model.summary())
 
 @app.route("/predict")
 def predict():
@@ -30,7 +34,7 @@ def predict():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
-    
+
 #docker build -t my-api .
 #docker run -p 5000:5000 my-api
 #curl "http://localhost:5000/predict?w=1&x=20"
