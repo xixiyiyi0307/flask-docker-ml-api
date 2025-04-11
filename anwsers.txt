@@ -1,0 +1,20 @@
+Question1:
+a)
+Code in app.py.
+b)
+The estimated Average Treatment Effect (τ̂) is -9.1057, with a p-value=0.000 < 0.001, indicating strong statistical significance. 
+This suggests that participation in the carbon offset program is associated with a 9.1057-point decrease in engagement score, controlling for sustainability spending.
+c)
+The estimate τ̂ can be interpreted causally under the following assumptions:
+Ignorability — All confounding variables that influence both treatment assignment (Wi) and the outcome (Yi) are controlled for by Xi.
+Correct model specification — The linear regression model correctly captures the relationship between variables, with no omitted variable bias.
+Independent and identically distributed observations — The error term εi is uncorrelated with the predictors and has a mean of zero.
+
+Question 2:
+a)、b)、c)
+Code in app.py.
+
+Explanations:
+app.py defines a Flask API that loads and uses a trained linear regression model to provide predictions based on input parameters w and x.
+The Dockerfile sets up a consistent environment with all necessary dependencies, ensuring the app can run anywhere without local setup issues.
+Containerization with Docker improves reproducibility and simplifies deployment by isolating the application from host system differences.
