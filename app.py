@@ -30,3 +30,8 @@ def predict():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+    
+#docker build -t my-api .
+#docker run -p 5000:5000 my-api
+#curl "http://localhost:5000/predict?w=1&x=20"
+
